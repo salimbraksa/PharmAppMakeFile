@@ -49,8 +49,11 @@ void save_client(char* filename, Client* client) {
         
     } while (1);
     
+    // Trouver le dernier client ajouté
+    Client* last_client = get_last_client(filename);
+    
     // Set nouveau id
-    long int new_id = get_last_client(filename) -> client_id + 1;
+    long int new_id = (last_client == NULL) ? 0 : last_client -> client_id + 1;
     client -> client_id = new_id;
     
     // Sauvegarder la commande
