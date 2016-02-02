@@ -30,4 +30,7 @@ LinkedList* get_fournisseurs(char* filename);
 /// Permet de supprimer un fournisseur
 void remove_fournisseur(char* filename, int fournisseur_id);
 
+/// Permet de vérifier si un fournisseur existe
+int fournisseur_exists(char* filename, int fournisseur_id);
+
 #endif /* fournisseur_controller_h */

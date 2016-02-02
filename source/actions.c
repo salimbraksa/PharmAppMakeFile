@@ -411,10 +411,25 @@ void change_default_fournisseur(void) {
         // Demander au utilisateur de changer l'id du fournisseur
         int new_id;
         get_integer("\nChanger l'id du fournisseur par défault: ", &new_id);
-        medic -> default_fournisseur_id = new_id;
         
-        // Sauvegarder
-        save_medicament(MEDICAMENTS_FILENAME, medic);
+        // Si le nouveau fournisseur donnée ne figure pas dans la liste
+        // Des fournisseurs.
+        int match = 0;
+        for (int i = 0; i < medic -> nombre_fournisseurs; i++) {
+            if (new_id == medic -> fournisseurs_ids[i]) {
+                match = 1;
+                break;
+            }
+        }
+        
+        if (match) {
+            medic -> default_fournisseur_id = new_id;
+            
+            // Sauvegarder
+            save_medicament(MEDICAMENTS_FILENAME, medic);
+        } else {
+            printf("L'id du fournisseur que vous avez donner ne figure pas dans la liste des fournisseurs de ce médicament.\n");
+        }
         
     }
     

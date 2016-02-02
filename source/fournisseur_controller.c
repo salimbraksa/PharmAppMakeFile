@@ -157,3 +157,10 @@ void remove_fournisseur(char* filename, int fournisseur_id) {
     rename("tmp", filename);
     
 }
+
+int fournisseur_exists(char* filename, int fournisseur_id) {
+    
+    Fournisseur* fournisseur = get_fournisseur_from_id(filename, fournisseur_id);
+    return fournisseur ? 1 : 0;
+    
+}
