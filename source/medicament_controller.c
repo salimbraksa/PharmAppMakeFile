@@ -53,7 +53,7 @@ void save_medicament(char* filename, Medicament* medicament) {
     Medicament* last_medic = get_last_medicament(filename);
     
     // Set nouveau id
-    long int new_id = (last_medic == NULL) ? 0 : last_medic -> medicament_id + 1;
+    long int new_id = (last_medic == NULL) ? 1 : last_medic -> medicament_id + 1;
     
     // Set nouveau id
     medicament -> medicament_id = new_id;
@@ -76,6 +76,10 @@ Medicament* get_last_medicament(char* filename) {
     
     // Pointer sur le dernier medicament dans le fichier
     fseek(flot, -sizeof(Medicament), SEEK_END);
+    
+    // Si le fichier est vide
+    long int n = ftell(flot);
+    if (n == 0) { return  NULL; }
     
     // Lire la derniere commande
     Medicament* medicament = (Medicament*)malloc(sizeof(Medicament));

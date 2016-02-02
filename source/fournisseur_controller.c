@@ -50,7 +50,7 @@ void save_fournisseur(char* filename, Fournisseur* fournisseur) {
     Fournisseur* last_fournisseur = get_last_fournisseur(filename);
     
     // Set nouveau id
-    int new_id = (last_fournisseur == NULL) ? 0 : last_fournisseur -> fournisseur_id + 1;
+    int new_id = (last_fournisseur == NULL) ? 1 : last_fournisseur -> fournisseur_id + 1;
     
     // Set nouveau id
     fournisseur -> fournisseur_id = new_id;
@@ -73,6 +73,10 @@ Fournisseur* get_last_fournisseur(char* filename) {
     
     // Pointer sur le dernier fournisseur dans le fichier
     fseek(flot, -sizeof(Fournisseur), SEEK_END);
+    
+    // Si le fichier est vide
+    long int n = ftell(flot);
+    if (n == 0) { return  NULL; }
     
     // Lire la derniere fournisseur
     Fournisseur* fournisseur = (Fournisseur*)malloc(sizeof(Fournisseur));

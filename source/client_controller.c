@@ -51,9 +51,9 @@ void save_client(char* filename, Client* client) {
     
     // Trouver le dernier client ajouté
     Client* last_client = get_last_client(filename);
-    
+
     // Set nouveau id
-    long int new_id = (last_client == NULL) ? 0 : last_client -> client_id + 1;
+    long int new_id = (last_client == NULL) ? 1 : last_client -> client_id + 1;
     client -> client_id = new_id;
     
     // Sauvegarder la commande
@@ -74,6 +74,10 @@ Client* get_last_client(char* filename) {
     
     // Pointer sur la derniere commande dans le fichier
     fseek(flot, -sizeof(Client), SEEK_END);
+    
+    // Si le fichier est vide
+    long int n = ftell(flot);
+    if (n == 0) { return  NULL; }
     
     // Lire la derniere commande
     Client* client = (Client*)malloc(sizeof(Client));

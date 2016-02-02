@@ -6,7 +6,7 @@
 //  Copyright © 2015 NSApps. All rights reserved.
 //
 
-#include "Medicament.h"
+#include "medicament.h"
 
 void set_medicament_data(Medicament* medicament,
                          char* nom,

@@ -18,7 +18,7 @@ void save_vente(char* filename, Vente* vente) {
     
     // Donner un nouveau id à la vente
     Vente* last_vente = get_last_vente(filename);
-    long int last_id = ( last_vente == NULL ? 1 : last_vente->vente_id + 1);
+    long int last_id = ( last_vente == NULL ) ? 1 : last_vente->vente_id + 1;
     vente -> vente_id = last_id;
     
     // Avant de sauvegarder la vente, vérifier que la quantité
@@ -142,6 +142,10 @@ Vente* get_last_vente(char* filename) {
     
     // Pointer sur la derniere vente dans le fichier
     fseek(flot, -sizeof(Vente), SEEK_END);
+    
+    // Si le fichier est vide
+    long int n = ftell(flot);
+    if (n == 0) { return  NULL; }
     
     // Lire la derniere vente
     Vente* vente = (Vente*)malloc(sizeof(Vente));

@@ -19,7 +19,7 @@ void save_commande(char* filename, Commande* commande){
     
     // Donner un nouveau id à la commande
     Commande* last_commande = get_last_commande(filename);
-    long int last_id = ( last_commande == NULL ? 1 : last_commande->commande_id + 1);
+    long int last_id = last_commande == NULL ? 1 : last_commande->commande_id + 1;
     commande -> commande_id = last_id;
     
     // Avant de sauvegarder la commande, vérifier que la quantité
@@ -65,6 +65,10 @@ Commande* get_last_commande(char* filename) {
     
     // Pointer sur la derniere commande dans le fichier
     fseek(flot, -sizeof(Commande), SEEK_END);
+    
+    // Si le fichier est vide
+    long int n = ftell(flot);
+    if (n == 0) { return  NULL; }
     
     // Lire la derniere commande
     Commande* commande = (Commande*)malloc(sizeof(Commande));
