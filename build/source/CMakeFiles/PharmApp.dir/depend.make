@@ -101,8 +101,8 @@ source/CMakeFiles/PharmApp.dir/main.c.o: ../source/stack.h
 source/CMakeFiles/PharmApp.dir/main.c.o: ../source/vente.h
 source/CMakeFiles/PharmApp.dir/main.c.o: ../source/vente_controller.h
 
-source/CMakeFiles/PharmApp.dir/medicament.c.o: ../source/Medicament.h
 source/CMakeFiles/PharmApp.dir/medicament.c.o: ../source/medicament.c
+source/CMakeFiles/PharmApp.dir/medicament.c.o: ../source/medicament.h
 
 source/CMakeFiles/PharmApp.dir/medicament_controller.c.o: ../source/commande.h
 source/CMakeFiles/PharmApp.dir/medicament_controller.c.o: ../source/constants.h

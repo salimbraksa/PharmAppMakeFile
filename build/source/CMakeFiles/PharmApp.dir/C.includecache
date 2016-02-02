@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/Salim/Desktop/Workstation/C/PharmApp/source/Medicament.h
-stdio.h
--
-stdlib.h
--
-string.h
--
-
 /Users/Salim/Desktop/Workstation/C/PharmApp/source/actions.c
 actions.h
 /Users/Salim/Desktop/Workstation/C/PharmApp/source/actions.h
@@ -183,8 +175,8 @@ navigations.h
 /Users/Salim/Desktop/Workstation/C/PharmApp/source/navigations.h
 
 /Users/Salim/Desktop/Workstation/C/PharmApp/source/medicament.c
-Medicament.h
-/Users/Salim/Desktop/Workstation/C/PharmApp/source/Medicament.h
+medicament.h
+/Users/Salim/Desktop/Workstation/C/PharmApp/source/medicament.h
 
 /Users/Salim/Desktop/Workstation/C/PharmApp/source/medicament.h
 stdio.h
