@@ -327,7 +327,7 @@ void add_medicament_to_commande(void) {
     // Prepare Vente fields
     int number_medics;
     long int medicaments[VENTE_MAX_MEDICAMENTS_IDS][2];
-    get_integer("Donner le nombre de médicaments à vendre par espèce: ", &number_medics);
+    get_integer("Donner le nombre de médicaments à commander par espèce: ", &number_medics);
     for (int i = 0; i < number_medics; i++) {
         
         int medic_id;
